@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 800px; 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	// Get the window displayed in the iframe.
+	var receiver = document.getElementById('flex').contentWindow;
+  
+	// Get a reference to the 'Send Message' button.
+	var btn = document.getElementById('phoneSend');
+
+	// A function to handle sending messages.
+	function sendMessage(e) {
+		// Prevent any default browser behaviour.
+		e.preventDefault();
+
+		// Send a message with the the phonenumber.
+		receiver.postMessage(document.getElementById('phoneNumber').value);
+	}
+
+	// Add an event listener that will execute the sendMessage() function
+	// when the send button is clicked.
+	btn.addEventListener('click', sendMessage);
+}
+
+
+</script>
+</head>
+<body>
+
+<h2>Some CRM</h2>
+<p>Flex is  integrated into the CRM through an iframe</p>
+
+<div style="left: 0px; border: 0px none; height: 800; position: fixed; width: 450px; overflow: hidden; bottom: -67px;">
+    <div style="overflow: hidden;z-index:100">
+    </div>
+    <iframe id="flex" src="./index.html" scrolling="no" style="height: 600px; border: 0px none; width: 400px; margin-bottom: 0px; margin-left: 24px;">
+    </iframe>
+    </div>
+    </div>
+<div class="row">
+        <div class="column" style="background-color:#bbb;">
+            <h2>Flex</h2>
+            <p>Handle all your Communications from this iframed Flex.</p>  
+            
+
+            <p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage</a>  to pass messages between Flex and Your CRM </p>      
+        
+            
+        </div>    
+        <div class="column" style="background-color:#aaa;">
+            <h2>CRM</h2>
+            <p>Your CRM stuff here.</p>
+                    <div style="position: 'absolute'; left: '50%'; top: '50%'; display: flex;   justify-content: center;                    " >
+                    <input type="text" id="phoneNumber" ref={phoneNumber} />
+                    <Button
+                    id="phoneSend"
+                    type="button"
+                    value="CAll"
+                    >
+                    CALL
+                    </Button>
+                </div>
+        </div>
+</div>
+
+</body>
+</html>
