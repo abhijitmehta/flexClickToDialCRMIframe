@@ -13,8 +13,8 @@ Read more about this Action [here](http://media.twiliocdn.com/sdk/js/flex/releas
 A high level flow diagram explaining the flow is shown below
 ![Click to Dial From CRM to iframed Flex](./images/Click-to-dial-Flex-iframed-in-CRM.png)
 
-
-
+## Screenshot of what this sample looks 
+![Dummy CRM wit Flex embedded](./images/click_to_dial_dummy_CRM_integ.png)
 
 ## Setup
 
